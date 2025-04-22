@@ -1,9 +1,9 @@
-## Author: Esperanza - Everlook/EU-Alliance
-## Interface: 30402
-## Title: Profession Master |cffDA8CFF[PM]
-## Notes: See your professions, those of your guild and those of your friends.
-## Notes-deDE: Siehe deine Berufe, die deiner Gilde und die deiner Freunde ein.
-## Version: 1.6.4
+## Author: Thrakkar - Wild Growth/EU-Horde
+## Interface: 11507
+## Title: Profession Master SoD |cffDA8CFF[PM_SoD]
+## Notes: Based on Profession Master - Guild Trade Skills By Kurki and Cata By obliv_1 -> See your professions, those of your guild and those of your friends.
+## Notes-deDE: Based on Profession Master - Guild Trade Skills By Kurki and Cata By obliv_1 -> Siehe deine Berufe, die deiner Gilde und die deiner Freunde ein.
+## Version: 1.0.0
 ## SavedVariables: Professions, OwnProfessions, SyncTimes, PMSettings, Logs, CharacterSets, BucketList, Guildmates
 ## SavedVariablesPerCharacter: Frames, CharacterSettings
 
