@@ -41,19 +41,16 @@ function ProfessionsView:Show()
         -- create view
         local view = uiService:CreateView("PmProfessions", 1000, 540, localeService:Get("ProfessionsViewTitle"));
         view:EnableKeyboard();
-        view:SetPropagateKeyboardInput(true)
-        view:SetScript("OnKeyDown", function(frame, key)
+        view:SetScript("OnKeyDown", function(_, key)
             -- check escape
             if (key == "ESCAPE") then
-                if  (self.skillViewVisible) then
-                    self:HideSkillView()
-                    frame:SetPropagateKeyboardInput(false)
+                if (self.skillViewVisible) then
+                    self:HideSkillView();
                 else
-                    self:Hide()
-                    frame:SetPropagateKeyboardInput(false)
+                    self:Hide();
                 end
-            else
-                frame:SetPropagateKeyboardInput(true)
+            elseif (key == "ENTER") then
+                ChatFrame_OpenChat("", nil, nil);
             end
         end)
         self.view = view;
@@ -130,10 +127,16 @@ function ProfessionsView:Show()
         itemSearch:SetPoint("BOTTOMRIGHT", skillsFrame, "TOPRIGHT", -332, -56);
         itemSearch:SetAutoFocus(false);
         self.itemSearch = itemSearch;
-        itemSearch:SetScript("OnKeyDown", function(frame, key)
+        itemSearch:SetScript("OnKeyDown", function(_, key)
             -- check escape
-            if (key == "ESCAPE") or (key == "ENTER") then
-                frame:ClearFocus()
+            if (key == "ESCAPE") then
+                if (self.skillViewVisible) then
+                    self:HideSkillView();
+                else
+                    self:Hide();
+                end
+            elseif (key == "ENTER") then
+                ChatFrame_OpenChat("", nil, nil);
             end
         end)
         itemSearch:SetScript("OnTextChanged", function()
@@ -205,6 +208,8 @@ function ProfessionsView:Show()
                 item.text, item.arg1 = self:GetAddonText(addonId), addonId;
                 UIDropDownMenu_AddButton(item);
             end
+            item.text, item.arg1 = self:GetAddonText(3), 3;
+            UIDropDownMenu_AddButton(item);
         end);
 
         -- add bucket list icon
@@ -384,6 +389,10 @@ function ProfessionsView:GetAddonText(addonId)
     -- check wotlk
     if (addonId == 2) then
         return "|T135773:16|t WOTLK";
+    end
+
+    if (addonId == 3) then
+        return "|T135773:16|t Cata";
     end
 
     -- use all addons
